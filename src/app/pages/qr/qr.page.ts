@@ -21,15 +21,17 @@ export class QrPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Invalid QR Code!',
       subHeader: 'Try Again!',
-      message: 'You have scanned an invalid QR!',
       buttons: ['OK']
     });
     await alert.present();
   }
   scanCode() {
+    this.scannedCode = null;
     this.barcodeScanner.scan().then(barcodeData => {
       this.qrData = barcodeData.text;
-      if (!this.qrData.includes(this.checkString)) {
+      if (this.qrData === '') {
+        return;
+      } else if (!this.qrData.includes(this.checkString)) {
         this.presentAlert();
       } else {
         this.scannedCode = this.qrData;
