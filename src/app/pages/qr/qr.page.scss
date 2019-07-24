@@ -1,0 +1,18 @@
+ion-content {
+  --ion-background-color: linear-gradient(to bottom, #d4fc79, #96e6a1);
+  --overflow: hidden;
+}
+.qrbutton {
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50%;
+  display: block !important;
+  --border-width: 0px;
+  --background: white;
+}
+ion-icon {
+  font-size: 3em;
+  color: #96e6a1;
+}
