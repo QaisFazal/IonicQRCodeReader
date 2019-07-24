@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  selector: 'app-qr',
+  templateUrl: './qr.page.html',
+  styleUrls: ['./qr.page.scss']
 })
-export class HomePage {
+export class QrPage implements OnInit {
   qrData = null;
   scannedCode = null;
   checkString = 'gis.lk/result?';
@@ -16,6 +16,7 @@ export class HomePage {
     private barcodeScanner: BarcodeScanner,
     private alertController: AlertController
   ) {}
+
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Invalid QR Code!',
@@ -35,4 +36,6 @@ export class HomePage {
       }
     });
   }
+
+  ngOnInit() {}
 }
